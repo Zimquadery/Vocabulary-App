@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="AdminDashbord" prefWidth="600.0" prefHeight="500.0" spacing="20.0">
+   <children>
+      <HBox alignment="CENTER_LEFT">
+         <children>
+            <Label styleClass="title" text="Admin Dashboard">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Label>
+            <Label styleClass="spacer" HBox.hgrow="ALWAYS" />
+            <Button fx:id="logoutButton" onAction="#handleLogout" text="Logout" />
+         </children>
+      </HBox>
+      
+      <VBox spacing="10.0" styleClass="section">
+         <children>
+            <Label styleClass="section-title" text="Add New Word">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Word:" />
+                  <TextField fx:id="addWordField" prefWidth="400.0" promptText="Enter new word" />
+               </children>
+            </VBox>
+            
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Definition:" />
+                  <TextArea fx:id="addDefinitionArea" prefHeight="80.0" prefWidth="400.0" promptText="Enter definition" wrapText="true" />
+               </children>
+            </VBox>
+            
+            <Button fx:id="addButton" onAction="#handleAddWord" styleClass="action-button" text="Add Word" />
+         </children>
+      </VBox>
+      
+      <Separator />
+      
+      <VBox spacing="10.0" styleClass="section">
+         <children>
+            <Label styleClass="section-title" text="Update Existing Word">
+               <font>
+                  <Font name="System Bold" size="16.0" />
+               </font>
+            </Label>
+            
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="Word to Update:" />
+                  <HBox spacing="10.0">
+                     <children>
+                        <TextField fx:id="updateWordField" prefWidth="300.0" promptText="Enter word to update" />
+                        <Button fx:id="searchWordButton" onAction="#handleSearchWordForUpdate" text="Search" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            
+            <VBox spacing="5.0">
+               <children>
+                  <Label text="New Definition:" />
+                  <TextArea fx:id="updateDefinitionArea" prefHeight="80.0" prefWidth="400.0" promptText="Current definition will appear here" wrapText="true" />
+               </children>
+            </VBox>
+            
+            <Button fx:id="updateButton" onAction="#handleUpdateWord" styleClass="action-button" text="Update Word" />
+         </children>
+      </VBox>
+      
+      <Label fx:id="statusLabel" styleClass="status-label" />
+   </children>
+   <padding>
+      <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+   </padding>
+</VBox>
